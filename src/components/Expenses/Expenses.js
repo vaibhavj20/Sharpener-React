@@ -1,21 +1,23 @@
+import React from "react";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
+import Card from "../UI/Card";
 
-function Expenses(props) {
+const Expenses = (props) => {
   return (
-    <div>
-      {/* Map over the expenses array passed as a prop */}
-      {props.expenses.map((expense) => (
-        // Render the ExpenseItem component for each expense
-        <ExpenseItem
-          key={expense.id}
-          date={expense.date}
-          title={expense.title}
-          price={expense.price}
-        />
-      ))}
-    </div>
+    <Card className="expenses">
+      {props.expenses.map((expense) => {
+        return (
+          <ExpenseItem
+            key={expense.id}
+            title={expense.title}
+            date={expense.date}
+            price={expense.price}
+          />
+        );
+      })}
+    </Card>
   );
-}
+};
 
 export default Expenses;
